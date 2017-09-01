@@ -1,12 +1,12 @@
 # BadUSB on Arduino
 
 ## What do i need to prepare??
-請先自備：
-**Arduino Leonardo Micro**
-**MicroUSB to USB**轉接頭或傳輸線
-**FTP站台**
-**Windows7**電腦
-**Arduino IDE**
+請先自備：<br>
+**Arduino Leonardo Micro**<br>
+**MicroUSB to USB**轉接頭或傳輸線<br>
+**FTP站台**<br>
+**Windows7**電腦<br>
+**Arduino IDE**<br>
 
 ## How to install?
 用Arduino IDE打開 badUSB.ino
